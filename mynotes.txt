@@ -23,4 +23,5 @@
    23  oc get routes
    24  oc get svc
    25  oc get pods
-
+ssh lab@utility
+cat ocp4/auth/kubeadmin-password
