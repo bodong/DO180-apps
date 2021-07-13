@@ -1,27 +1,37 @@
- 1  exit
-    2  oc login -u kubeadmin -p nIMBQ-ZoYZ5-UyS5D-oGTjF
-    3  ls -lrt
-    4  oc set data secret/pull-secret -n openshift-config --from-file=secret.json
-    5  oc new-app --as-deployment-config  --docker-image=quay.io/sxho13/do180-mysql-57-rhel7:latest  --name=mysql-openshift  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=testdb  -e MYSQL_ROOT_PASSWORD=r00tpa55
-    6  oc new-app --as-deployment-config  --docker-image=quay.io/sxho13/do180-mysql-57-rhel7:latest  --name=mysql-openshift2  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=testdb  -e MYSQL_ROOT_PASSWORD=r00tpa55
-    7  oc status
-    8  oc get pods -w
-    9  oc new-app --as-deployment-config  --docker-image=quay.io/sarwo04/do180-mysql-57-rhel7:latest  --name=mysql-openshift-3  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=testdb  -e MYSQL_ROOT_PASSWORD=r00tpa55
-   10  history
-   11  oc describe pod mysql-openshift-2
-   12  oc describe pod mysql-openshift
-   13  oc get pods
-   14  oc describe pod mysql-openshift2-1-qz95z
-   15  oc get svc
-   16* 
-   17  oc get pods
-   18  oc get svc
-   19  oc describe dc mysql-openshift
-   20  oc describe dc mysql-openshift2
-   21  oc expose service mysql-openshift
-   22  oc expose service mysql-openshift2
-   23  oc get routes
-   24  oc get svc
-   25  oc get pods
-ssh lab@utility
-cat ocp4/auth/kubeadmin-password
+
+   ## Day 2
+   
+   #get creds kubeadmin
+   ssh lab@utility
+   cat ocp4/auth/kubeadmin-password
+   
+   #login as kubeadmin
+   oc login -u kubeadmin -p nIMBQ-ZoYZ5-UyS5D-oGTjF
+   
+   #set secret
+   oc set data secret/pull-secret -n openshift-config --from-file=secret.json
+   
+   #create app
+   oc new-app --as-deployment-config  --docker-image=quay.io/sxho13/do180-mysql-57-rhel7:latest  --name=mysql-openshift  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=testdb  -e MYSQL_ROOT_PASSWORD=r00tpa55
+    
+   oc new-app --as-deployment-config  --docker-image=quay.io/sxho13/do180-mysql-57-rhel7:latest  --name=mysql-openshift2  -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=testdb  -e MYSQL_ROOT_PASSWORD=r00tpa55
+  
+   #check status
+   oc status
+   
+   #check pods
+   oc get pods -w
+   oc get pods
+   
+   #inspect detail pod
+   oc describe pod mysql-openshift-2
+   oc describe pod mysql-openshift
+   oc describe pod mysql-openshift2-1-qz95z
+
+   #get services
+   oc get svc
+   
+   #get routes
+   oc get routes
+   
+   
