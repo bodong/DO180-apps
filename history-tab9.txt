@@ -1,0 +1,171 @@
+    1  exit
+    2  sudo skopeo inspect docker://docker.io/cytopia/mysql-5.5
+    3  yum -y install skopeo 
+    4  sudo yum -y install skopeo 
+    5  sudo skopeo inspect docker://docker.io/cytopia/mysql-5.5
+    6  history
+    7  man skopeo 
+    8  skopeo inspect docker://docker.io/cytopia/mysql-5.5
+    9  whoami
+   10  pwd
+   11  cd ~
+   12  ls -lrt
+   13  oc whoami
+   14  pwd
+   15  cd ~/DO180/labs/multicontainer-openshift
+   16  ls -lrt
+   17  cd deploy/nodejs
+   18  ls -lrt
+   19  oc projects
+   20  ls -lrt
+   21  ./build.sh 
+   22  ls -lrt
+   23  vi Dockerfile 
+   24  mv Dockerfile Dockerfile.origin
+   25  mv Dockerfile.origin Dockerfile
+   26  ls -lrt
+   27  cp Dockerfile Dockerfile.origin
+   28  ls -lrt
+   29  vi Dockerfile
+   30  ./build.sh 
+   31  vi Dockerfile
+   32  ./build.sh 
+   33  vi Dockerfile
+   34  ./build.sh 
+   35   sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   36  sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   37  echo ${RHT_OCP4_QUAY_USER}
+   38  source /usr/local/etc/ocp4.config 
+   39  echo ${RHT_OCP4_QUAY_USER}
+   40  sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   41  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   42  oc login -u ${RHT_OCP4_DEV_USER}  -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+   43  oc new-project ${RHT_OCP4_DEV_USER}-template
+   44  cd /home/student/DO180/labs/multicontainer-openshift
+   45   oc process  -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}  | oc create -f -
+   46  oc get pods -w
+   47  oc get 
+   48  oc status
+   49  oc get all
+   50  oc get pods
+   51  oc get pods -w
+   52  oc delete all -l app=todonodejs
+   53  oc get pods
+   54  oc get all
+   55  lab multicontainer-openshift finsih
+   56  lab multicontainer-openshift finish
+   57  lab multicontainer-openshift start
+   58  cd ~/DO180/labs/multicontainer-openshift/images/mysql
+   59  sudo podman build -t do180-mysql-57-rhel7 .
+   60  source /usr/local/etc/ocp4.config
+   61  sudo podman login quay.io -u ${RHT_OCP4_QUAY_USER}
+   62  sudo podman tag  do180-mysql-57-rhel7 quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   63  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   64  oc get pods -w
+   65  cd ~/DO180/labs/multicontainer-openshift
+   66  cd images/nodejs
+   67  ls -lrt
+   68  cat Dockerfile 
+   69  sudo podman build --layers=false -t do180-nodejs .
+   70   cd ~/DO180/labs/multicontainer-openshift
+   71  cd deploy/nodejs
+   72  ls -lrt
+   73  ./build.sh 
+   74  sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   75  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   76  oc get pods -w
+   77  oc login -u ${RHT_OCP4_DEV_USER}  -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+   78  oc new-project ${RHT_OCP4_DEV_USER}-template
+   79  cd /home/student/DO180/labs/multicontainer-openshift
+   80   oc process  -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}  | oc create -f -
+   81  oc get pods -w
+   82  clear
+   83  oc get pods -w
+   84  oc delete -l app=todonodejs
+   85  oc get 
+   86  oc get all
+   87  history
+   88  oc delete all -l app=todonodejs
+   89  lab multicontainer-openshift finish
+   90  history
+   91  cd ~/DO180/labs/multicontainer-openshift/images/mysql
+   92  sudo podman build -t do180-mysql-57-rhel7 .
+   93  source /usr/local/etc/ocp4.config
+   94  sudo podman login quay.io -u ${RHT_OCP4_QUAY_USER}
+   95  sudo podman tag  do180-mysql-57-rhel7 quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   96  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   97  oc get pods -w
+   98  oc whoami
+   99  oc get pods
+  100  history
+  101  oc delete all -l app=todonodejs
+  102  clear
+  103  oc projects
+  104  exit
+  105  DO280/labs/network-policy/display-project-info.sh 
+  106  oc rsh hello-6c4984d949-m46lz curl 10.8.0.78:8080 | grep Hello
+  107  oc rsh hello-6c4984d949-m46lz curl 172.39.26.205:8080 | grep Hello
+  108  oc rsh hello-6c4984d949-m46lz curl 172.30.26.205:8080 | grep Hello
+  109  DO280/labs/network-policy/display-project-info.sh 
+  110  oc rsh sample-app-d5f945-xrtc8 curl 10.8.0.78:8080 | grep Hello
+  111  oc project
+  112  oc project network-test
+  113  oc grep pods -w
+  114  oc get pods -w
+  115  oc rsh sample-app-d5f945-xrtc8 curl 10.8.0.78:8080 | grep Hello
+  116  oc rsh sample-app-d5f945-xrtc8 curl 10.8.0.78:8181 | grep Hello
+  117  cyrl -s hello-network-policy.apps.ocp4.example.com | grep Hello
+  118  curl -s hello-network-policy.apps.ocp4.example.com | grep Hello
+  119  lab network-review start 
+  120  oc login -u developer -p developer https://api.ocp4.example.com:6443
+  121  oc new-project network-review
+  122  oc project
+  123  cd DO280/labs/network-review/
+  124  ls -lrt
+  125  vim php-http.yaml 
+  126  oc create -f php-http.yaml 
+  127  oc get pods
+  128  oc get pods -w
+  129  oc expose svc php-http --hostname php-http.apps.ocp4.example.com
+  130  pwd
+  131* 
+  132  vim deny-all.yaml 
+  133  oc create -f deny-all.yaml 
+  134  curl http://php-http.apps.ocp4.example.com
+  135  ls -lrt
+  136  vim allow-from-openshift-ingress.yaml 
+  137  oc create -f allow-from-openshift-ingress.yaml 
+  138  oc login -u admin -p redhat
+  139  oc label namespaces default network.openshift.io/policy-group=ingress
+  140  oc label namespaces default network.openshift.io/policy-group=ingress --overwrite=true
+  141  oc label namespace default network.openshift.io/policy-group=ingress
+  142  oc label namespace default network.openshift.io/policy-group=ingress --overwrite=true
+  143  oc label namespace default network.openshift.io/policy-group=ingress
+  144  oc get labels
+  145  oc get label
+  146  clear
+  147  oc whoami
+  148  oc label namespace default  network.openshift.io/policy-group=ingress
+  149  for X in {1..4};  do  curl -s http://php-http.apps.ocp4.example.com | grep "PHP";  done
+  150  oc login -u developer -p developer
+  151  cd certs
+  152  openssl req -new -key training.key  -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/\
+ CN=php-https.apps.ocp4.example.com"  -out training.csr
+  153  oc whoami
+  154  openssl req -new -key training,key -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/\
+CN=php-https.apps.ocp4.example.com" -out training.csr
+  155  openssl req -new -key training.key -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/\
+CN=php-https.apps.ocp4.example.com" -out training.csr
+  156  openssl x509 -req -in training.csr  -CA training-CA.pem -CAkey training-CA.key -CAcreateserial  -passin file:passphrase.txt  -out training.crt -days 3650 -sha256 -extfile training.ext
+  157  ls -lrt
+  158  cd ..
+  159  oc create secret tls php-certs  --cert certs/training.crt  --key certs/training.key
+  160  oc get secrets
+  161  vim php-https.yaml 
+  162  oc create -f php-https.yaml 
+  163  oc get pods
+  164  oc get pods -w
+  165  oc create route passthrough php-https  --service php-https --port 8443 --hostname php-https.apps.ocp4.example.com
+  166  oc get routes
+  167  lab network-review grade
+  168  history > ~/DO180-apps/history-tab9.txt

@@ -1,0 +1,244 @@
+    1  exit
+    2  sudo skopeo inspect docker://docker.io/cytopia/mysql-5.5
+    3  yum -y install skopeo 
+    4  sudo yum -y install skopeo 
+    5  sudo skopeo inspect docker://docker.io/cytopia/mysql-5.5
+    6  history
+    7  man skopeo 
+    8  skopeo inspect docker://docker.io/cytopia/mysql-5.5
+    9  whoami
+   10  pwd
+   11  cd ~
+   12  ls -lrt
+   13  oc whoami
+   14  pwd
+   15  cd ~/DO180/labs/multicontainer-openshift
+   16  ls -lrt
+   17  cd deploy/nodejs
+   18  ls -lrt
+   19  oc projects
+   20  ls -lrt
+   21  ./build.sh 
+   22  ls -lrt
+   23  vi Dockerfile 
+   24  mv Dockerfile Dockerfile.origin
+   25  mv Dockerfile.origin Dockerfile
+   26  ls -lrt
+   27  cp Dockerfile Dockerfile.origin
+   28  ls -lrt
+   29  vi Dockerfile
+   30  ./build.sh 
+   31  vi Dockerfile
+   32  ./build.sh 
+   33  vi Dockerfile
+   34  ./build.sh 
+   35   sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   36  sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   37  echo ${RHT_OCP4_QUAY_USER}
+   38  source /usr/local/etc/ocp4.config 
+   39  echo ${RHT_OCP4_QUAY_USER}
+   40  sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   41  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   42  oc login -u ${RHT_OCP4_DEV_USER}  -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+   43  oc new-project ${RHT_OCP4_DEV_USER}-template
+   44  cd /home/student/DO180/labs/multicontainer-openshift
+   45   oc process  -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}  | oc create -f -
+   46  oc get pods -w
+   47  oc get 
+   48  oc status
+   49  oc get all
+   50  oc get pods
+   51  oc get pods -w
+   52  oc delete all -l app=todonodejs
+   53  oc get pods
+   54  oc get all
+   55  lab multicontainer-openshift finsih
+   56  lab multicontainer-openshift finish
+   57  lab multicontainer-openshift start
+   58  cd ~/DO180/labs/multicontainer-openshift/images/mysql
+   59  sudo podman build -t do180-mysql-57-rhel7 .
+   60  source /usr/local/etc/ocp4.config
+   61  sudo podman login quay.io -u ${RHT_OCP4_QUAY_USER}
+   62  sudo podman tag  do180-mysql-57-rhel7 quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   63  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   64  oc get pods -w
+   65  cd ~/DO180/labs/multicontainer-openshift
+   66  cd images/nodejs
+   67  ls -lrt
+   68  cat Dockerfile 
+   69  sudo podman build --layers=false -t do180-nodejs .
+   70   cd ~/DO180/labs/multicontainer-openshift
+   71  cd deploy/nodejs
+   72  ls -lrt
+   73  ./build.sh 
+   74  sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   75  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   76  oc get pods -w
+   77  oc login -u ${RHT_OCP4_DEV_USER}  -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+   78  oc new-project ${RHT_OCP4_DEV_USER}-template
+   79  cd /home/student/DO180/labs/multicontainer-openshift
+   80   oc process  -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}  | oc create -f -
+   81  oc get pods -w
+   82  clear
+   83  oc get pods -w
+   84  oc delete -l app=todonodejs
+   85  oc get 
+   86  oc get all
+   87  history
+   88  oc delete all -l app=todonodejs
+   89  lab multicontainer-openshift finish
+   90  history
+   91  cd ~/DO180/labs/multicontainer-openshift/images/mysql
+   92  sudo podman build -t do180-mysql-57-rhel7 .
+   93  source /usr/local/etc/ocp4.config
+   94  sudo podman login quay.io -u ${RHT_OCP4_QUAY_USER}
+   95  sudo podman tag  do180-mysql-57-rhel7 quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   96  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   97  oc get pods -w
+   98  oc whoami
+   99  oc get pods
+  100  history
+  101  oc delete all -l app=todonodejs
+  102  clear
+  103  oc projects
+  104  exit
+  105  cd ~
+  106  lab schedule-pods start
+  107  oc login -u developer -p developer https://api.ocp4.example.com:6443
+  108  oc new-project schedule-pods
+  109  oc new-app --name hello  --docker-image quay.io/redhattraining/hello-world-nginx:v1.0
+  110  oc status
+  111  oc get pods -w
+  112  oc expose svc/hello
+  113  oc scale --replicas 4 deployment/hello
+  114  oc get pods -o wide
+  115  oc get pods -o wide -w
+  116  oc login -u admin -p redhat
+  117  oc get nodes -L env
+  118  oc label node master01 env=dev
+  119  oc label node master02 env=prod
+  120  oc get nodes -L env
+  121  oc login -u developer -p developer
+  122  oc edit deployment/hello
+  123  oc get pods -o wide -w
+  124  oc delete project schedule-pods
+  125  oc login -u admin -p redhat
+  126  oc label node -l env env-
+  127  oc login -u developer -p developer
+  128  oc project schedule-pods-ts 
+  129  oc get pods
+  130  oc logs hello-ts-6bc96f8664-597qv
+  131  oc describe pod hello-ts-6bc96f8664-597qv
+  132  oc edit deployment/hello-ts
+  133  oc get pods -o wide
+  134  lab schedule-pods finish
+  135  lab schedule-limit start
+  136  oc login -u developer -p developer https://api.ocp4.example.com:6443
+  137  oc new-project schedule-limit
+  138  oc create deployment hello-limit  --image quay.io/redhattraining/hello-world-nginx:v1.0  --dry-run=client -o yaml > ~/DO280/labs/schedule-limit/hello-limit.yaml
+  139  vim ~/DO280/labs/schedule-limit/hello-limit.yaml
+  140  oc create --save-config -f DO280/labs/schedule-limit/hello-limit.yaml 
+  141  oc get pods -o wide
+  142  oc get events --field-selector type=Warning
+  143  vim ~/DO280/labs/schedule-limit/hello-limit.yaml
+  144  oc apply -f DO280/labs/schedule-limit/hello-limit.yaml 
+  145  oc get pods -o wide
+  146  oc get pods -o wide -w
+  147  oc get events --field-selector type=Warning
+  148  oc get events --field-selector type=Error
+  149  oc get pods -o wide -w
+  150  oc log hello-limit-685df8d6bf-xch58
+  151  oc logs hello-limit-685df8d6bf-xch58
+  152  vim ~/DO280/labs/schedule-limit/hello-limit.yaml
+  153  oc apply -f DO280/labs/schedule-limit/hello-limit.yaml 
+  154  oc get pods -o wide -w
+  155  oc get events --field-selector type=Warning
+  156  vim ~/DO280/labs/schedule-limit/hello-limit.yaml
+  157  oc apply -f DO280/labs/schedule-limit/hello-limit.yaml 
+  158  oc get pods -o wide -w
+  159  oc scale --replicas 4 deployment/hello-limit
+  160  oc get pods
+  161  oc get events --field-selector type=Warning
+  162  oc delete all -l app=hello-limit
+  163  oc create --save-config  -f ~/DO280/labs/schedule-limit/loadtest.yaml
+  164  oc get routes
+  165  curl -X GET  http://loadtest.apps.ocp4.example.com/api/loadtest/v1/mem/150/60
+  166  curl -X GET  http://loadtest.apps.ocp4.example.com/api/loadtest/v1/mem/200/60
+  167  oc delete all -l app=loadtest
+  168  oc login -u admin -p redhat
+  169  oc create quota project-quota  --hard cpu="3",memory="1G",configmaps="3"  -n schedule-limit
+  170  oc login -u developer -p developer
+  171   for X in {1..4};  do  oc create configmap my-config${X} --from-literal key${X}=value${X};  done
+  172  oc login -u admin -p redhat
+  173  oc adm create-bootstrap-project-template  -o yaml > /tmp/project-template.yaml
+  174  vim /tmp/project-template.yaml 
+  175  oc create -f /tmp/project-template.yaml -n openshift-config
+  176  oc edit projects.config.openshift.io/cluster
+  177  watch oc get pods -n openshift-apiserver
+  178  oc new-project template-test
+  179  oc get resourcequotas,limitrange
+  180  oc get resourcequotas,limitranges
+  181  clear
+  182  oc get resourcequotas,limitranges
+  183  oc delete project schedule-limit 
+  184  oc delete project template-test 
+  185  lab schedule-limit finish
+  186  lab schedule-scale start
+  187  oc login -u developer -p developer https://api.ocp4.example.com:6443
+  188  oc new-project schedule-scale
+  189  vim DO280/labs/schedule-scale/loadtest.yaml 
+  190  oc create --save-config -f DO280/labs/schedule-scale/loadtest.yaml 
+  191  oc get pods -o wide -w
+  192  oc describe pod/loadtest-7c88f9884b-m2b97 | grep -A2 -E "Limits|Requests"
+  193  oc scale --replicas 5 deployment/loadtest
+  194  oc describe pod/loadtest-7c88f9884b-m2b97 | grep -A2 -E "Limits|Requests"
+  195  oc get pods -o wide -w
+  196  oc scale --replicas 1 deployment/loadtest
+  197  oc get pods -o wide -w
+  198  oc autoscale deployment/loadtest --min 2 --max 10 --cpu-percent 50
+  199  watch oc get hpa/loadtest
+  200  oc get route/loadtest
+  201  curl -X GET http://loadtest-schedule-scale.apps.ocp4.example.com/api/loadtest/v1/cpu/1
+  202  oc new-app --name scaling --as-deployment-config --docker-image quay.io/redhattraining/scaling:v1.0
+  203  oc get pods -o wide -w
+  204  oc expose svc/scaling
+  205  oc scale --replicas 3 dc/scaling
+  206  oc get pods -o wide -l deploymentconfig=scaling
+  207  oc get pods -o wide -l deploymentconfig=scaling -w
+  208  oc get route/scalin
+  209  oc get route/scaling
+  210  DO280/labs/schedule-scale/curl-route.sh 
+  211  oc delete project schedule-scale 
+  212  lab schedule-scale finish
+  213  lab schedule-review start
+  214  oc login -u admin -p redhat
+  215  oc whoami
+  216  oc login -u admin -p redhat https://api.ocp4.example.com:6443
+  217  oc get nodes -L tiear
+  218  oc get nodes -L tier
+  219  oc label node master01 tier=gold
+  220  oc label node master02 tier=silver
+  221  oc get nodes -L tier
+  222  oc login -u developer -p developer
+  223  oc new-project schedule-review
+  224  oc create deployment loadtest --dry-run=client --image quay.io/redhattraining/loadtest:v1.0 -o yaml > DO280/labs/schedule-review/loadtest.yaml
+  225  vim DO280/labs/schedule-review/loadtest.yaml 
+  226  oc create --save-config -f DO280/labs/schedule-review/loadtest.yaml 
+  227  oc get pods -o wide -w
+  228  oc describe pod/loadtest-6bd9c44785-8r2mg | grep -A2 Requests
+  229  oc describe pod/loadtest-6bd9c44785-8r2mg | grep -A2 -E Requests
+  230  oc describe pod/loadtest-6bd9c44785-8r2mg | grep -A2 -E "Requests|Limits
+
+  231  oc describe pod/loadtest-6bd9c44785-8r2mg | grep -A2 -E "Requests|Limits"
+  232  oc expose deployment/loadtest --port 80 --target-port 8080
+  233  oc expose service/loadtest --name loadtest
+  234  oc get route/loadtest
+  235  curl http://loadtest-schedule-review. apps.ocp4.example.com/api/loadtest/v1/healthz
+  236  curl http://loadtest-schedule-review.apps.ocp4.example.com/api/loadtest/v1/healthz
+  237  oc autoscale deployment/loadtest --name loadtest --min 2 --max 40 --cpu-percent 70
+  238  curl -X GET http://loadtest-schedule-review.apps.ocp4.example.com/api/loadtest/v1/cpu/3
+  239  oc login -u admin -p redhat
+  240  oc create quota review-quota --hard cpu="1",memory="2G",pods="20"
+  241  lab schedule-review grade 
+  242  lab schedule-review finish 
+  243  history > ~/DO180-apps/history-tab10.txt

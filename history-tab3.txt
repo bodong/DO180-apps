@@ -1,0 +1,224 @@
+    1  exit
+    2  sudo skopeo inspect docker://docker.io/cytopia/mysql-5.5
+    3  yum -y install skopeo 
+    4  sudo yum -y install skopeo 
+    5  sudo skopeo inspect docker://docker.io/cytopia/mysql-5.5
+    6  history
+    7  man skopeo 
+    8  skopeo inspect docker://docker.io/cytopia/mysql-5.5
+    9  whoami
+   10  pwd
+   11  cd ~
+   12  ls -lrt
+   13  oc whoami
+   14  pwd
+   15  cd ~/DO180/labs/multicontainer-openshift
+   16  ls -lrt
+   17  cd deploy/nodejs
+   18  ls -lrt
+   19  oc projects
+   20  ls -lrt
+   21  ./build.sh 
+   22  ls -lrt
+   23  vi Dockerfile 
+   24  mv Dockerfile Dockerfile.origin
+   25  mv Dockerfile.origin Dockerfile
+   26  ls -lrt
+   27  cp Dockerfile Dockerfile.origin
+   28  ls -lrt
+   29  vi Dockerfile
+   30  ./build.sh 
+   31  vi Dockerfile
+   32  ./build.sh 
+   33  vi Dockerfile
+   34  ./build.sh 
+   35   sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   36  sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   37  echo ${RHT_OCP4_QUAY_USER}
+   38  source /usr/local/etc/ocp4.config 
+   39  echo ${RHT_OCP4_QUAY_USER}
+   40  sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   41  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   42  oc login -u ${RHT_OCP4_DEV_USER}  -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+   43  oc new-project ${RHT_OCP4_DEV_USER}-template
+   44  cd /home/student/DO180/labs/multicontainer-openshift
+   45   oc process  -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}  | oc create -f -
+   46  oc get pods -w
+   47  oc get 
+   48  oc status
+   49  oc get all
+   50  oc get pods
+   51  oc get pods -w
+   52  oc delete all -l app=todonodejs
+   53  oc get pods
+   54  oc get all
+   55  lab multicontainer-openshift finsih
+   56  lab multicontainer-openshift finish
+   57  lab multicontainer-openshift start
+   58  cd ~/DO180/labs/multicontainer-openshift/images/mysql
+   59  sudo podman build -t do180-mysql-57-rhel7 .
+   60  source /usr/local/etc/ocp4.config
+   61  sudo podman login quay.io -u ${RHT_OCP4_QUAY_USER}
+   62  sudo podman tag  do180-mysql-57-rhel7 quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   63  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   64  oc get pods -w
+   65  cd ~/DO180/labs/multicontainer-openshift
+   66  cd images/nodejs
+   67  ls -lrt
+   68  cat Dockerfile 
+   69  sudo podman build --layers=false -t do180-nodejs .
+   70   cd ~/DO180/labs/multicontainer-openshift
+   71  cd deploy/nodejs
+   72  ls -lrt
+   73  ./build.sh 
+   74  sudo podman tag do180/todonodejs  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   75  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+   76  oc get pods -w
+   77  oc login -u ${RHT_OCP4_DEV_USER}  -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+   78  oc new-project ${RHT_OCP4_DEV_USER}-template
+   79  cd /home/student/DO180/labs/multicontainer-openshift
+   80   oc process  -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}  | oc create -f -
+   81  oc get pods -w
+   82  clear
+   83  oc get pods -w
+   84  oc delete -l app=todonodejs
+   85  oc get 
+   86  oc get all
+   87  history
+   88  oc delete all -l app=todonodejs
+   89  lab multicontainer-openshift finish
+   90  history
+   91  cd ~/DO180/labs/multicontainer-openshift/images/mysql
+   92  sudo podman build -t do180-mysql-57-rhel7 .
+   93  source /usr/local/etc/ocp4.config
+   94  sudo podman login quay.io -u ${RHT_OCP4_QUAY_USER}
+   95  sudo podman tag  do180-mysql-57-rhel7 quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   96  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   97  oc get pods -w
+   98  oc whoami
+   99  oc get pods
+  100  history
+  101  oc delete all -l app=todonodejs
+  102  clear
+  103  oc projects
+  104  exit
+  105  oc whoami
+  106  lab multicontainer-openshift finish
+  107  lab multicontainer-openshift start
+  108  cd ~/DO180/labs/multicontainer-openshift/images/mysql
+  109  sudo podman build -t do180-mysql-57-rhel7 .
+  110  source /usr/local/etc/ocp4.config
+  111  sudo podman login quay.io -u ${RHT_OCP4_QUAY_USER}
+  112  sudo podman tag  do180-mysql-57-rhel7 quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+  113   sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+  114  oc get pods -w
+  115  cd ~/DO180/labs/multicontainer-openshift
+  116  cd images/nodejs/
+  117   sudo podman build --layers=false -t do180-nodejs .
+  118  cd ~/DO180/labs/multicontainer-openshift
+  119  cd deploy/nodejs/
+  120  ls -lrt
+  121  ./build.sh 
+  122  sudo podman tag do180/todonodejs quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+  123  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-todonodejs
+  124  oc get pods -w
+  125  oc login -u ${RHT_OCP4_DEV_USER}  -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+  126   oc new-project ${RHT_OCP4_DEV_USER}-template
+  127  cd /home/student/DO180/labs/multicontainer-openshift
+  128  oc process  -f todo-template.json -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}  | oc create -f -
+  129  oc get pods -w
+  130  oc expose service todoapi
+  131  oc status | grep -o "http:.*com"
+  132  curl -w "\n"  $(oc status | grep -o "http:.*com")/todo/api/items/1
+  133  lab multicontainer-openshift finish
+  134  lab comprehensive-review start
+  135  cd /home/student/DO180/labs/comprehensive-review/image
+  136  ls -lrt
+  137  ./get-nexus-bundle.sh 
+  138  pwd
+  139  ls -lrt
+  140  vi Dockerfile
+  141  cat Dockerfile 
+  142   sudo podman build --layers=false -t nexus .
+  143  cd /home/student/DO180/labs/comprehensive-review
+  144  cd deploy/local/
+  145  ls -lrt
+  146  ./run-persistent.sh 
+  147  $ sudo podman ps  --format="{{.ID}} {{.Names}} {{.Image}}"
+  148  sudo podman ps  --format="{{.ID}} {{.Names}} {{.Image}}"
+  149  sudo podman logs sharp_kepler
+  150  clear
+  151  sudo podman inspect  -f '{{.NetworkSettings.IPAddress}}' sharp_kepler
+  152  10.88.0.12
+  153  sudo podman inspect  -f '{{.NetworkSettings.IPAddress}}' sharp_kepler
+  154  curl -v 10.88.0.2:8081/nexus/ 2>&1 | grep -E 'HTTP|<title>'
+  155  sudo podman kill sharp_kepler
+  156  sudo podman login -u sarwo04 quay.io
+  157  sudo podman push localhost/nexus:latest quay.io/sarwo04/nexus:latest
+  158  cd ~/DO180/labs/comprehensive-review/deploy/openshift/
+  159  oc login -u ${RHT_OCP4_DEV_USER} -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+  160  oc new-project ${RHT_OCP4_DEV_USER}-review
+  161  oc process -f resources/nexus-template.json  -p RHT_OCP4_QUAY_USER=${RHT_OCP4_QUAY_USER}  | oc create -f -
+  162  oc get pods
+  163  oc expose svc/nexus
+  164  oc get route -o yaml
+  165  lab comprehensive-review grade
+  166  history
+  167  lab comprehensive-review finish
+  168  lab execute-troubleshoot start
+  169  source /usr/local/etc/ocp4.config 
+  170  oc login -u kubeadmin -p ${RHT_OCP4_KUBEADM_PASSWD}  https://api.ocp4.example.com:6443
+  171  oc get nodes
+  172  oc adm top node
+  173  oc describe node master01
+  174  oc adm log-lods -u crio master01
+  175  oc adm node-logs -u crio master01
+  176  oc adm node-logs -u kubeadmin master01
+  177  oc describe node master01
+  178  oc get pod -n openshift-image-registry 
+  179  oc logs --tail 3 -n openshift-image-registry  cluster-image-registry-operator-564bd5dd8f-s46b
+  180  oc logs --tail 3 -n openshift-image-registry  cluster-image-registry-operator-5f47f6fcf7-xsmj7
+  181  oc get pod -n openshift-image-registry 
+  182  oc logs --tail 3 -n openshift-image-registry cluster-image-registry-operator-5f47f6fcf7-xsmj7
+  183  oc logs --tail 3 -n openshift-image-registry -c cluster-image-registry-operator cluster-image-registry-operator-5f47f6fcf7-xsmj7
+  184  clear
+  185  oc logs --tail 3 -n openshift-image-registry -c cluster-image-registry-operator cluster-image-registry-operator-5f47f6fcf7-xsmj7
+  186  oc logs --tail 1 -n openshift-image-registry cluster-image-registry-operator-5f47f6fcf7-xsmj7
+  187  oc get pod -n openshift-image-registry 
+  188  oc logs --tail 1 -n openshift-image-registry image-registry-6db579898-bpxc6
+  189  oc adm node-logs --tail 1 -u kubelet master01
+  190  oc debug node/master01
+  191  chroot /host
+  192  oc debug node/master01
+  193  systemctl status kubelet
+  194  oc debug node/master01
+  195  oc adm top nodes
+  196  oc debug node/master01
+  197  pwd
+  198  clear
+  199  oc debug node/master01
+  200  oc debug node/master02
+  201  oc get nodes
+  202  oc debug node/master02
+  203  oc debug node/master03
+  204  oc whoami
+  205  oc adm top node
+  206* oc describe node master01 
+  207  oc describe node master02
+  208  oc describe node master03
+  209  systemctl status kubelet
+  210  oc get pod
+  211  oc project execute-troubleshoot 
+  212  oc get pod
+  213  oc status
+  214  oc get events
+  215  skopeo inspect docker://registry.access.redhat.com/rhscl/postgresq-96-rhel7:1
+  216  skopeo inspect docker://registry.access.redhat.com/rhscl/postgresql-96-rhel7:1
+  217  oc edit deployment/psql
+  218  oc status
+  219  oc get pods
+  220  oc whoami
+  221  history
+  222  history | grep pullsecret
+  223  history | grep master01
+  224  history > ~/DO180-apps/history-tab3.txt

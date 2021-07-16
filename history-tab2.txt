@@ -1,0 +1,94 @@
+    1  exit
+    2  sudo skopeo inspect docker://docker.io/cytopia/mysql-5.5
+    3  yum -y install skopeo 
+    4  sudo yum -y install skopeo 
+    5  sudo skopeo inspect docker://docker.io/cytopia/mysql-5.5
+    6  history
+    7  man skopeo 
+    8  skopeo inspect docker://docker.io/cytopia/mysql-5.5
+    9  ls -lrt
+   10  pwd
+   11  git 
+   12  git clone https://github.com/bodong/DO180-apps.git
+   13  ls -lrt
+   14  cd DO180-apps/
+   15  vim mynotes.txt
+   16  git status
+   17  git add .
+   18  git commit -am 'command list'
+   19  git push
+   20  ls -lrt
+   21  vim mynotes.txt 
+   22  git commit -am 'command list'
+   23  git push
+   24  git status
+   25  git pull
+   26  ls -lrt
+   27  oc get templates -n openshift
+   28  oc get template mysql-persistent -n openshift -o yaml
+   29  lab multicontainer-openshift start
+   30  ls -lrt
+   31  cd ..
+   32  ls -lrt
+   33  cd DO180
+   34  ls -lrt
+   35  cd labs/
+   36  ls -lrt
+   37  cd multicontainer-openshift/
+   38  ls -lrt
+   39  cd images/
+   40  ls -lrt
+   41  cd mysql/
+   42  ls -lrt
+   43  oc project
+   44  oc describe namespace developer-mysql-openshift
+   45  pwd
+   46  sudo podman build -t do180-mysql-57-rhel7
+   47  sudo podman build -t do180-mysql-57-rhel7 .
+   48  ls -lrt
+   49  cat build.sh 
+   50  cat Dockerfile 
+   51  cat /usr/local/etc/ocp4.config 
+   52  echo ${RHT_OCP4_DEV_USER}
+   53  source /usr/local/etc/ocp4.config 
+   54  echo ${RHT_OCP4_DEV_USER}
+   55  echo ${RHT_OCP4_QUAY_USER}
+   56  sudo podman login quay.io -u ${RHT_OCP4_QUAY_USER}
+   57  sudo podman tag  do180-mysql-57-rhel7 quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   58  sudo podman push  quay.io/${RHT_OCP4_QUAY_USER}/do180-mysql-57-rhel7
+   59  cd ~/DO180/labs/multicontainer-openshift/
+   60  cd images/nodejs/
+   61  ls -lrt
+   62  sudo podman build --layer=false -t do180-nodejs .
+   63  sudo podman build --layers=false -t do180-nodejs .
+   64  sudo podman build --layers=false -t do180-nodejs2 .
+   65  podman images
+   66  oc get pods
+   67  oc project
+   68  cd ~/DO180/labs/multicontainer-openshift
+   69  cd images/nodejs/
+   70  ls -lrt
+   71  sudo podman --layers=false -t do180-nodejs .
+   72  sudo podman build --layers=false -t do180-nodejs .
+   73  pwd
+   74  ls -lrt
+   75  pwd
+   76   cd ~/DO180/labs/multicontainer-openshift
+   77  oc get pods -n openshift-authentication
+   78  oc get pods
+   79  oc get pods -n mysql-openshift2
+   80  oc whoamic
+   81  oc whoami
+   82  history | grep oc
+   83* 
+   84  cat /usr/local/etc/ocp4.config 
+   85  vi /usr/local/etc/ocp4.config 
+   86  cat /usr/local/etc/ocp4.config 
+   87  source /usr/local/etc/ocp4.config cat /etc/yum.repos.d/
+   88  cat /etc/yum.repos.d/
+   89  ls /etc/yum.repos.d/
+   90  history
+   91  histort | grep oc
+   92  history | grep oc
+   93  history | grep pullsecret
+   94  history > ~/DO180-apps/history-tab2.txt
