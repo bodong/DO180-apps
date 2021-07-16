@@ -48,4 +48,18 @@ oc describe namespace developer-mysql-openshift
 taint and tolerations
 if remove taint from master node, it will likely deployment will be done on the master node instead of child nodes
 
+
+
+# Day 4
+steps : 
+  create user > administrate > 
+
+#get role binding in cluster
+oc get clusterrolebindings | grep -i user
+
+#get policy
+oc adm policy
+
+
+
  
